@@ -4,23 +4,26 @@
       <div class="title-bar-controls">
         <button aria-label="Minimize"></button>
         <button aria-label="Maximize"></button>
-        <button aria-label="Close"></button>
+        <button aria-label="Close" (click)="Alert()"></button>
       </div>
     </div>
     <div class="window-body">
 
 
-      <form class="mx-auto">
+      <form [formGroup]="LoginForm" (ngSubmit)="submitForm()" class="mx-auto">
           <div class="field-row">
             <label for="username">Username</label>
-            <input id="username" type="text" />
+            <input formControlName="username" id="username" type="text" />
           </div>
           <div class="field-row">
             <label for="password">Password</label>
-            <input id="password" type="password" />
+            <input formControlName="password" id="password" type="password" />
           </div>
           <div class="field-row">
-            <button aria-label="submit" class="center">Submit</button>
+            <button type="submit"
+                    aria-label="submit"
+                    class="center"
+                    [disabled]="!LoginForm.valid">Submit</button>
           </div>
       </form>
 
