@@ -1,0 +1,63 @@
+<div class="window vertical-center horizontal-center" style="width: 300px">
+  <div class="title-bar">
+    <div class="title-bar-text">Triton Pet-Index Pet-Adder</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close" (click)="Alert()"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <form [formGroup]="LoginForm" (ngSubmit)="submitForm()" class="mx-auto">
+      <fieldset>
+        <div class="field-row">Select animal CATegory:</div>
+        <div class="field-row">
+          <input id="radio10" type="radio" name="fieldset-example" />
+          <label for="radio10">Dogs</label>
+        </div>
+        <div class="field-row">
+          <input id="radio11" type="radio" name="fieldset-example" />
+          <label for="radio11">Cats</label>
+        </div>
+        <div class="field-row">
+          <input id="radio12" type="radio" name="fieldset-example" />
+          <label for="radio12">Reptiles</label>
+        </div>
+        <div class="field-row">
+          <input id="radio12" type="radio" name="fieldset-example" />
+          <label for="radio12">Birds</label>
+        </div>
+        <div class="field-row">
+          <input id="radio12" type="radio" name="fieldset-example" />
+          <label for="radio12">Amphibians</label>
+        </div>
+      </fieldset>
+
+      <div class="field-row">
+        <label for="password">Breed/Species</label>
+        <input formControlName="password" id="password" type="text" />
+      </div>
+
+      <div class="field-row">
+        <label for="image"></label>
+        <input
+          formControlName="image"
+          id="image"
+          type="file"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+
+      <div class="field-row">
+        <button
+          type="submit"
+          aria-label="submit"
+          class="center"
+          [disabled]="!LoginForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

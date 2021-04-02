@@ -22,7 +22,7 @@ export class LoginService {
     this.http.post(this.Url, loginData)
       .subscribe(response => {
         console.log(response);
-        this.router.navigate(["home"]);
+        this.router.navigate(["form"]);
       });
   }
 }
