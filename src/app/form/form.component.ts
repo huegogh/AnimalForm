@@ -9,20 +9,35 @@ import { LoginService } from '../Services/login.service';
 })
 export class FormComponent implements OnInit {
 
-  LoginForm!: FormGroup;
+  AnimalForm!: FormGroup;
+  image!: File;
 
   constructor(private form: FormBuilder, private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.LoginForm = this.form.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+    this.AnimalForm = this.form.group({
+      category: ['', Validators.required],
+      breed: ['', Validators.required],
+      image: ['', Validators.required],
+      height: ['', Validators.required],
+      weight: ['', Validators.required],
+      lifespan: ['', Validators.required],
+      diet: ['', Validators.required],
+      dangerousFoods: ['', Validators.required],
+      goodFoods: ['', Validators.required],
+      needs: ['', Validators.required],
+      habits: ['', Validators.required]
     });
   }
 
   submitForm() {
     console.log('running submit');
-    this.loginService.SignIn(this.LoginForm.value);
+    console.log(this.AnimalForm.value);
+  }
+
+  onFileSelected(event: any) {
+    this.image = event.target.files[0];
+    console.log(this.image);
   }
 
   Alert() {

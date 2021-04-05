@@ -1,4 +1,4 @@
-<div class="window vertical-center horizontal-center" style="width: 300px">
+<div class="window horizontal-center" style="width: 500px">
   <div class="title-bar">
     <div class="title-bar-text">Triton Pet-Index Pet-Adder</div>
     <div class="title-bar-controls">
@@ -8,44 +8,89 @@
     </div>
   </div>
   <div class="window-body">
-    <form [formGroup]="LoginForm" (ngSubmit)="submitForm()" class="mx-auto">
+    <form [formGroup]="AnimalForm" (ngSubmit)="submitForm()" class="mx-auto" style="width: 300px">
       <fieldset>
         <div class="field-row">Select animal CATegory:</div>
         <div class="field-row">
-          <input id="radio10" type="radio" name="fieldset-example" />
-          <label for="radio10">Dogs</label>
+          <input id="dog" type="radio" formControlName="category" value="dog" checked />
+          <label for="dog">Dog</label>
         </div>
         <div class="field-row">
-          <input id="radio11" type="radio" name="fieldset-example" />
-          <label for="radio11">Cats</label>
+          <input id="cat" type="radio" formControlName="category" value="cat" />
+          <label for="cat">Cat</label>
         </div>
         <div class="field-row">
-          <input id="radio12" type="radio" name="fieldset-example" />
-          <label for="radio12">Reptiles</label>
+          <input id="reptile" type="radio" formControlName="category" value="reptile" />
+          <label for="reptile">Reptile</label>
         </div>
         <div class="field-row">
-          <input id="radio12" type="radio" name="fieldset-example" />
-          <label for="radio12">Birds</label>
+          <input id="bird" type="radio" formControlName="category" value="bird" />
+          <label for="bird">Bird</label>
         </div>
         <div class="field-row">
-          <input id="radio12" type="radio" name="fieldset-example" />
-          <label for="radio12">Amphibians</label>
+          <input id="amphibian" type="radio" formControlName="category" value="amphibian" />
+          <label for="amphibian">Amphibian</label>
+        </div>
+        <div class="field-row">
+          <input id="small-animal" type="radio" formControlName="category" value="small-animal" />
+          <label for="small-animal">Small Animal</label>
         </div>
       </fieldset>
 
       <div class="field-row">
-        <label for="password">Breed/Species</label>
-        <input formControlName="password" id="password" type="text" />
+        <label for="breed">Breed/Species</label>
+        <input formControlName="breed" id="breed" type="text" size="40"/>
       </div>
 
       <div class="field-row">
-        <label for="image"></label>
+        <label for="image">Upload Animal Image</label>
         <input
           formControlName="image"
           id="image"
           type="file"
           accept="image/png, image/jpeg"
+          (change) = "onFileSelected($event)"
         />
+      </div>
+
+      <div class="field-row">
+        <label for="height">Height</label>
+        <input formControlName="height" id="height" type="text" />
+      </div>
+
+      <div class="field-row">
+        <label for="weight">Weight</label>
+        <input formControlName="weight" id="weight" type="text" />
+      </div>
+
+      <div class="field-row">
+        <label for="lifespan">Lifespan</label>
+        <input formControlName="lifespan" id="lifespan" type="text" />
+      </div>
+
+      <div class="field-row">
+        <label for="diet">Diet</label>
+        <textarea formControlName="diet" id="diet"></textarea>
+      </div>
+
+      <div class="field-row">
+        <label for="dangerous-foods">Dangerous Foods</label>
+        <textarea formControlName="dangerousFoods" id="dangerous-foods"></textarea>
+      </div>
+
+      <div class="field-row">
+        <label for="good-foods">Good Foods</label>
+        <textarea formControlName="goodFoods" id="good-foods"></textarea>
+      </div>
+
+      <div class="field-row">
+        <label for="needs">Grooming and Diet Needs</label>
+        <textarea formControlName="needs" id="needs"></textarea>
+      </div>
+
+      <div class="field-row">
+        <label for="habits">Tempermant and Habitat</label>
+        <textarea formControlName="habits" id="habits"></textarea>
       </div>
 
       <div class="field-row">
@@ -53,7 +98,7 @@
           type="submit"
           aria-label="submit"
           class="center"
-          [disabled]="!LoginForm.valid"
+          [disabled]="!AnimalForm.valid"
         >
           Submit
         </button>
